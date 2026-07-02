@@ -1,13 +1,13 @@
 {
-  "name": "android-app-debug-mcp",
+  "name": "playwright-for-android",
   "version": "0.2.1",
   "description": "MCP version of the Android debug skill. Exposes adb / emulator / logcat / screenshot / UI-tree as MCP tools; the host LLM (Claude Code) selects each UI action itself. No separate LLM API key required.",
   "author": {
     "name": "Team Marvis (SungKyunKwan University)",
     "url": "https://marvis-ai.com/"
   },
-  "homepage": "https://github.com/fclab-skku/android-app-debug-mcp",
-  "repository": "https://github.com/fclab-skku/android-app-debug-mcp.git",
+  "homepage": "https://github.com/fclab-skku/playwrite_for_android",
+  "repository": "https://github.com/fclab-skku/playwrite_for_android.git",
   "license": "MIT",
   "keywords": [
     "android",

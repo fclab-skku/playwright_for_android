@@ -1,5 +1,5 @@
 [project]
-name = "android-app-debug-mcp"
+name = "playwright-for-android"
 version = "0.2.1"
 description = "MCP server for end-to-end Android debug sessions on an emulator."
 readme = "README.md"
@@ -23,8 +23,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/fclab-skku/android-app-debug-mcp"
-Repository = "https://github.com/sunjae1294/android-app-debug-mcp.git"
+Homepage = "https://github.com/fclab-skku/playwrite_for_android"
+Repository = "https://github.com/fclab-skku/playwrite_for_android.git"
 
 [tool.uv]
 package = false

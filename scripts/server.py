@@ -73,10 +73,10 @@ mcp = FastMCP("marvis-dev")
 def _make_run_dir(project_root: Optional[Path]) -> Path:
     """Resolve the per-run output directory, mirroring debug_run.py's logic."""
     ts = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
-    if os.environ.get("ANDROID_APP_DEBUG_RUNS_DIR", "").strip():
+    if os.environ.get("PLAYWRIGHT_FOR_ANDROID_RUNS_DIR", "").strip():
         base = runs_root()
     elif project_root is not None:
-        base = project_root.resolve() / "android-app-debug"
+        base = project_root.resolve() / "playwright-for-android"
     else:
         base = runs_root()
     run_dir = base / ts
@@ -223,8 +223,8 @@ def precheck() -> str:
             for (s, kind) in list_attached_devices(sdk)
         ],
         "runs_dir": {
-            "default_pattern": "<project-root>/android-app-debug/<ts>/",
-            "env_override": os.environ.get("ANDROID_APP_DEBUG_RUNS_DIR") or None,
+            "default_pattern": "<project-root>/playwright-for-android/<ts>/",
+            "env_override": os.environ.get("PLAYWRIGHT_FOR_ANDROID_RUNS_DIR") or None,
             "xdg_fallback": str(runs_root()),
         },
         "max_steps_hard_cap": MAX_STEPS_HARD_CAP,

@@ -7,7 +7,7 @@
   "description": "Claude Code plugins published by FCLAB@SKKU (Team Marvis).",
   "plugins": [
     {
-      "name": "android-app-debug-mcp",
+      "name": "playwright-for-android",
       "source": "./",
       "description": "MCP-based Android debug skill. Host LLM (Claude Code) selects each UI action; server exposes adb / gradle / emulator / logcat / UI-tree as MCP tools.",
       "version": "0.2.1",
@@ -15,7 +15,7 @@
         "name": "Team Marvis (SungKyunKwan University)",
         "url": "https://marvis-ai.com/"
       },
-      "homepage": "https://github.com/fclab-skku/android-app-debug-mcp",
+      "homepage": "https://github.com/fclab-skku/playwrite_for_android",
       "license": "MIT",
       "keywords": [
         "android",

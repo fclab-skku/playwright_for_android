@@ -5,9 +5,9 @@
       "args": [
         "run",
         "--project",
-        "/ABSOLUTE/PATH/TO/android-app-debug-mcp",
+        "/ABSOLUTE/PATH/TO/playwright-for-android",
         "python",
-        "/ABSOLUTE/PATH/TO/android-app-debug-mcp/scripts/server.py"
+        "/ABSOLUTE/PATH/TO/playwright-for-android/scripts/server.py"
       ]
     }
   }

@@ -1,4 +1,4 @@
-"""Single-session state for the android-app-debug MCP server.
+"""Single-session state for the playwright-for-android MCP server.
 
 One server process holds at most one active ``Session`` at a time
 (``_current``). ``start_debug_session`` populates it, every other tool reads

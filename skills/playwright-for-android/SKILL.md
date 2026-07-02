@@ -1,11 +1,11 @@
 ---
-name: android-app-debug-mcp
+name: playwright-for-android
 description: End-to-end Android debug loop on an emulator. Builds the APK with a Gradle task, boots a named AVD, installs and launches the target package, then drives a single feature via adb-injected UI actions while capturing a unified logcat-and-actions timeline plus a developer-facing test report. Use when the user wants to debug, test, verify, or reproduce a feature or bug of an Android app by driving an emulator and reflecting on the UI.
 ---
 
-# android-app-debug-mcp
+# playwright-for-android
 
-Tools live in the `android-app-debug` MCP server. Each tool's schema (parameters, defaults, descriptions) is authoritative — this document covers only the cross-cutting workflow, reasoning rules, and conventions that don't fit in a single tool description.
+Tools live in the `playwright-for-android` MCP server. Each tool's schema (parameters, defaults, descriptions) is authoritative — this document covers only the cross-cutting workflow, reasoning rules, and conventions that don't fit in a single tool description.
 
 ## When to use
 
@@ -112,7 +112,7 @@ of tapping Sign In with the password field empty.
 
 ## Run artifacts
 
-`start_debug_session` writes one directory per invocation under `<project_root>/android-app-debug/<YYYY-MM-DDTHH-MM-SS>/` by default (override with `ANDROID_APP_DEBUG_RUNS_DIR`). Each run directory contains:
+`start_debug_session` writes one directory per invocation under `<project_root>/playwright-for-android/<YYYY-MM-DDTHH-MM-SS>/` by default (override with `PLAYWRIGHT_FOR_ANDROID_RUNS_DIR`). Each run directory contains:
 
 - `logcat.log` — annotated logcat stream with inline `<<< MARVIS_DEV ... >>>` markers, one per fired action.
 - `trace.jsonl` — one row per step with the action JSON.
@@ -121,11 +121,11 @@ of tapping Sign In with the password field empty.
 - `timeline.md` — assembled report + logcat in one file. On disk for the user to browse later.
 - `build_error.log` — only present if Gradle failed.
 
-Add `android-app-debug/` to the Android project's `.gitignore`.
+Add `playwright-for-android/` to the Android project's `.gitignore`.
 
 ## Configuration
 
-`~/.config/android-app-debug/config.json` holds non-secret defaults:
+`~/.config/playwright-for-android/config.json` holds non-secret defaults:
 
 ```json
 {

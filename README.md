@@ -1,6 +1,6 @@
 <div align="center">
 
-# android-app-debug-mcp
+# playwright-for-android
 
 **Drive an Android emulator from your LLM. Build, install, launch, and test a feature end-to-end — get a unified logcat-and-actions timeline back.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-`android-app-debug-mcp` is a Model Context Protocol server that turns one structured test task ("verify the login screen rejects an empty password") into one auditable debug run — APK built, AVD booted, app launched, UI driven through adb, logcat captured, screenshots saved, verdict written.
+`playwright-for-android` is a Model Context Protocol server that turns one structured test task ("verify the login screen rejects an empty password") into one auditable debug run — APK built, AVD booted, app launched, UI driven through adb, logcat captured, screenshots saved, verdict written.
 
 Every UI action lands as a typed MCP tool call, so the entire decision trail is visible in your LLM client's chat history and reproducible from `trace.jsonl` and `logcat.log` on disk.
 
@@ -20,7 +20,7 @@ Every UI action lands as a typed MCP tool call, so the entire decision trail is 
 
 - **Build → boot → launch → drive → verdict, in one session.** Gradle, AVD, install, launch, logcat, and the Marvis UI-tree parser are all orchestrated behind a single `start_debug_session` call.
 - **Unified timeline.** Every action writes an inline `<<< MARVIS_DEV ... >>>` marker into the live logcat stream, so cause and effect sit next to each other in `timeline.md`.
-- **Auditable by default.** Every captured frame, every action, and every UX observation lands under `<project_root>/android-app-debug/<timestamp>/`.
+- **Auditable by default.** Every captured frame, every action, and every UX observation lands under `<project_root>/playwright-for-android/<timestamp>/`.
 
 ## Install
 
@@ -28,8 +28,8 @@ Every UI action lands as a typed MCP tool call, so the entire decision trail is 
 
 ```bash
 # Inside Claude Code:
-/plugin marketplace add /path/to/android-app-debug-mcp
-/plugin install android-app-debug-mcp@FCLab.SKKU
+/plugin marketplace add /path/to/playwright-for-android
+/plugin install playwright-for-android@FCLab.SKKU
 ```
 
 The bundled plugin manifest registers the MCP server automatically via `${CLAUDE_PLUGIN_ROOT}/scripts/server.py`.
@@ -37,7 +37,7 @@ The bundled plugin manifest registers the MCP server automatically via `${CLAUDE
 ### As a standalone MCP server
 
 ```bash
-claude mcp add marvis-dev -- uv run --project /absolute/path/to/android-app-debug-mcp python /absolute/path/to/android-app-debug-mcp/scripts/server.py
+claude mcp add marvis-dev -- uv run --project /absolute/path/to/playwright-for-android python /absolute/path/to/playwright-for-android/scripts/server.py
 ```
 
 Or copy `.mcp.json.example` to `.mcp.json` in your project root and edit the path.
@@ -56,7 +56,7 @@ Or copy `.mcp.json.example` to `.mcp.json` in your project root and edit the pat
 python3 scripts/onboard.py
 ```
 
-Writes `~/.config/android-app-debug/config.json` with non-secret defaults (SDK path, default AVD).
+Writes `~/.config/playwright-for-android/config.json` with non-secret defaults (SDK path, default AVD).
 
 ## Tool reference
 
@@ -78,10 +78,10 @@ See [`SKILL.md`](./SKILL.md) for the full agent-facing contract: workflow, infor
 
 ## Run artifacts
 
-Each `start_debug_session` invocation writes one directory under `<project_root>/android-app-debug/<YYYY-MM-DDTHH-MM-SS>/` (override with `$ANDROID_APP_DEBUG_RUNS_DIR`):
+Each `start_debug_session` invocation writes one directory under `<project_root>/playwright-for-android/<YYYY-MM-DDTHH-MM-SS>/` (override with `$PLAYWRIGHT_FOR_ANDROID_RUNS_DIR`):
 
 ```
-android-app-debug/2026-05-28T22-15-04/
+playwright-for-android/2026-05-28T22-15-04/
 ├── logcat.log              # annotated logcat with inline <<< MARVIS_DEV ... >>> markers
 ├── trace.jsonl             # one row per step with the action JSON
 ├── screenshots/
@@ -92,7 +92,7 @@ android-app-debug/2026-05-28T22-15-04/
 └── build_error.log         # only if Gradle failed
 ```
 
-Add `android-app-debug/` to your project's `.gitignore`.
+Add `playwright-for-android/` to your project's `.gitignore`.
 
 
 ## Credits

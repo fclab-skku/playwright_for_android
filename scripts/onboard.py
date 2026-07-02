@@ -1,6 +1,6 @@
-"""First-run interactive setup for the android-app-debug MCP skill.
+"""First-run interactive setup for the playwright-for-android MCP skill.
 
-Writes host-level defaults to ``~/.config/android-app-debug/config.json``
+Writes host-level defaults to ``~/.config/playwright-for-android/config.json``
 (mode 0600):
 
 - Android SDK path
@@ -76,7 +76,7 @@ def _save(config: Dict[str, Any]) -> None:
 
 
 def main() -> int:
-    print("== android-app-debug (MCP) onboarding ==\n")
+    print("== playwright-for-android (MCP) onboarding ==\n")
     config = _load_existing()
 
     # ── Android SDK ──

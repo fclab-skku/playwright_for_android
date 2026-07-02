@@ -1,4 +1,4 @@
-"""Shared filesystem paths for the android-app-debug skill.
+"""Shared filesystem paths for the playwright-for-android skill.
 
 Config and run artifacts live under the user's XDG dirs so the skill works
 when installed read-only as a Claude Code plugin. The skill directory itself
@@ -6,8 +6,8 @@ is never written to.
 
 Environment overrides (so power users and CI can relocate state):
 
-- ``ANDROID_APP_DEBUG_CONFIG`` — full path to the config.json file.
-- ``ANDROID_APP_DEBUG_RUNS_DIR`` — directory under which per-run subdirs land.
+- ``PLAYWRIGHT_FOR_ANDROID_CONFIG`` — full path to the config.json file.
+- ``PLAYWRIGHT_FOR_ANDROID_RUNS_DIR`` — directory under which per-run subdirs land.
 
 Otherwise we honor ``XDG_CONFIG_HOME`` / ``XDG_CACHE_HOME`` if set, else fall
 back to ``~/.config`` / ``~/.cache``.
@@ -30,17 +30,17 @@ def _xdg_dir(env_var: str, default_subpath: str) -> Path:
 
 
 def config_path() -> Path:
-    override = os.environ.get("ANDROID_APP_DEBUG_CONFIG", "").strip()
+    override = os.environ.get("PLAYWRIGHT_FOR_ANDROID_CONFIG", "").strip()
     if override:
         return Path(os.path.expanduser(override))
-    return _xdg_dir("XDG_CONFIG_HOME", ".config") / "android-app-debug" / "config.json"
+    return _xdg_dir("XDG_CONFIG_HOME", ".config") / "playwright-for-android" / "config.json"
 
 
 def runs_root() -> Path:
-    override = os.environ.get("ANDROID_APP_DEBUG_RUNS_DIR", "").strip()
+    override = os.environ.get("PLAYWRIGHT_FOR_ANDROID_RUNS_DIR", "").strip()
     if override:
         return Path(os.path.expanduser(override))
-    return _xdg_dir("XDG_CACHE_HOME", ".cache") / "android-app-debug" / "runs"
+    return _xdg_dir("XDG_CACHE_HOME", ".cache") / "playwright-for-android" / "runs"
 
 
 def load_config() -> Dict[str, Any]:
