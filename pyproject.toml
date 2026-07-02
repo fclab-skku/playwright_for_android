@@ -23,8 +23,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/fclab-skku/playwrite_for_android"
-Repository = "https://github.com/fclab-skku/playwrite_for_android.git"
+Homepage = "https://github.com/fclab-skku/playwright_for_android"
+Repository = "https://github.com/fclab-skku/playwright_for_android.git"
 
 [tool.uv]
 package = false

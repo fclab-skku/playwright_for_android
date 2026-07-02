@@ -6,8 +6,8 @@
     "name": "Team Marvis (SungKyunKwan University)",
     "url": "https://marvis-ai.com/"
   },
-  "homepage": "https://github.com/fclab-skku/playwrite_for_android",
-  "repository": "https://github.com/fclab-skku/playwrite_for_android.git",
+  "homepage": "https://github.com/fclab-skku/playwright_for_android",
+  "repository": "https://github.com/fclab-skku/playwright_for_android.git",
   "license": "MIT",
   "keywords": [
     "android",
